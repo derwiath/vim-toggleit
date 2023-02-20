@@ -57,11 +57,15 @@ augroup END
 
 " ToggleItFullScreenCmd
 function! s:ToggleItFullScreenCmd()
-  if !exists('g:vim_toggleit_fullscreen')
-    let g:vim_toggleit_fullscreen=0
+  if exists("g:neovide")
+    let g:neovide_fullscreen = !g:neovide_fullscreen
+  else
+    if !exists('g:vim_toggleit_fullscreen')
+      let g:vim_toggleit_fullscreen=0
+    endif
+    let g:vim_toggleit_fullscreen=!g:vim_toggleit_fullscreen
+    call GuiWindowFullScreen(g:vim_toggleit_fullscreen)
   endif
-  let g:vim_toggleit_fullscreen=!g:vim_toggleit_fullscreen
-  call GuiWindowFullScreen(g:vim_toggleit_fullscreen)
 endfun
 
 command! -nargs=0 ToggleItFullScreen call <SID>ToggleItFullScreenCmd()
