@@ -18,6 +18,13 @@ endfun
 
 command! -nargs=0 ToggleItNumber call <SID>ToggleItNumberCmd()
 
+" ToggleItRelativeNumberCmd
+function! s:ToggleItRelativeNumberCmd()
+  let &number=!&relativenumber
+endfun
+
+command! -nargs=0 ToggleItRelativeNumber call <SID>ToggleItRelativeNumberCmd()
+
 " ToggleItAdjustWindowHeight
 function! s:ToggleItAdjustWindowHeightCmd(minheight, maxheight)
   exe max([min([line("$"), a:maxheight]), a:minheight]) . "wincmd _"
