@@ -11,20 +11,6 @@ if !exists('g:vim_toggleit_quickfix_max_height')
   let g:vim_toggleit_quickfix_max_height=30
 endif
 
-" ToggleItNumberCmd
-function! s:ToggleItNumberCmd()
-  let &number=!&number
-endfun
-
-command! -nargs=0 ToggleItNumber call <SID>ToggleItNumberCmd()
-
-" ToggleItRelativeNumberCmd
-function! s:ToggleItRelativeNumberCmd()
-  let &number=!&relativenumber
-endfun
-
-command! -nargs=0 ToggleItRelativeNumber call <SID>ToggleItRelativeNumberCmd()
-
 " ToggleItAdjustWindowHeight
 function! s:ToggleItAdjustWindowHeightCmd(minheight, maxheight)
   exe max([min([line("$"), a:maxheight]), a:minheight]) . "wincmd _"
